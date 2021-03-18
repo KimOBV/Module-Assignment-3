@@ -1,0 +1,27 @@
+header {
+    background-color: #0A3641;
+    max-height: 128px;
+}
+main {
+}
+.logo {
+    max-height: 114px;
+    padding: 5px 5px 5px 5px;
+}
+.spread1 {
+    outline: 2px solid black;
+    background-image: url("../Images/mountain1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+ 
+    }
+    div.spread2 {
+        outline: 2px solid black;
+        background-image: url("../Images/mountain2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+     
+        }
+        footer {
+            background-color: #0A3641;
+        }
