@@ -1,74 +1,309 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+@font-face {
+    font-family: "Open Sans";
+    src:   url("../fonts/WorkSans/WorkSans-Bold.ttf") format("TrueType"), 
+           url("../fonts/WorkSans/WorkSans-Black.ttf") format("TrueType"),
+           url("../fonts/Bitter/Bitter-Regular.ttf") format("TrueType");
+  }
+:root {
+    --color-1: #0A3641;
+    --color-2: #FF7F36;
 }
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    font-family: WorkSans, Bitter;
+    background-color: var(--color-1);
 }
-nav {
-    position: fixed;
-    z-index: 100;
-    background-color: #0A3641;
-    height: 112px;
-    width: 100%;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-nav img {
-    padding: 8px 56px;
-    height: 112px;
+* h1, h2, h3 {
+    font-family: WorkSans-Bold, sans-serif;
 }
-nav ul {
-    float: right;
-    margin-right: 24px;
+* p, a {
+    font-family: Bitter-Regular, sans;
 }
-nav ul li {
-     display: inline-block;
-     line-height: 160px;
-     margin: 0px 24px;
-}
-nav ul li a {
+a {
+    text-decoration: none;
     color: #fff;
-    padding: 8px 16px;
+}
+ul {
+    list-style: none;
+}
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.align-items-center {
+    align-items: center;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.btn {
+    background-color: var(--color-1);
+    border: none;
+    color: #fff;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
-    text-transform: uppercase;
-     
+    border-color: #fff;
 }
-a.active, a:hover {
-    background: #FFF;
-    color: #0A3641;
-    border-radius: 2px;
-    text-decoration: underline;
-    transition: .5s;
+.header .nav ul li input {
+    border: none;
+    height: 24px;
+    width: 160px;
+    padding: 4px 8px;
+    font-size: 16px;
 }
-
-main {
-    top: 112px;
-    padding: 0px;
-    margin: 0px;
-    background-color: #0A3641;
-}
-main div.bgi1 {
+/*header*/
+.header {
+    background-color: var(--color-1);
+    padding: 12px 0;
     position: relative;
-    padding: 40em;
-    background-image: url("../Images/mountain1.jpg");
-    background-size: cover;
 }
-main div.split {
+.header .logo, .header .nav {
+    padding: 0 15px;
+}
+.header #rd-logo {
+    height: 80px;
+}
+.header .nav ul li {
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: 50px;
+}
+.header .nav ul li a {
+    display: block;
+    font-size: 16px;
+    padding: 10px 0;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: capitalize;
+    transition: all 0.5s ease;
+}
+.header .nav ul li a:hover, .header .nav ul li a:active {
+    color: #FF7F36;
+}
+.header #nav-check {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.nav-toggler {
+    height: 34px;
+    width: 44px;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+.nav-toggler span {
+    display: block;
+    height: 2px;
+    width: 20px;
+    background-color: var(--color-1);
+    position: relative;
+}
+.nav-toggler span::before, .nav-toggler span::after {
+    content: '';
+    position: absolute;
     width: 100%;
-    height: 400px;
-    background-color: #0A3641;
+    height: 100%;
+    background-color: var(--color-1);
+    left: 0;
 }
-main div.bgi2 {
+.nav-toggler span::before {
+    top: -6px;
+}
+.nav-toggler span::after {
+    top: 6px;
+}
+@media(max-width: 1132px) {
+    .nav-toggler {
+        display: flex;
+    }
+    .header .nav {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background-color: var(--color-1);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        visibility: hidden;
+    }
+    .header .nav ul li {
+        display: block;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    .header #nav-check:checked ~ .nav {
+        opacity: 1;
+        visibility: visible;
+    }
+    .header #nav-check:focus ~ .nav-toggler {
+        box-shadow: 0 0 15px #000000;
+    }
+    .header #nav-check:checked ~ .nav-toggler span {
+        background-color: transparent;
+    }
+    .header #nav-check:checked ~ .nav-toggler span::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+    .header #nav-check:checked ~ .nav-toggler span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}
+/*Main*/
+article {
+    padding: 500px;
+}
+.splash1 {
+    background-image: url(../Images/mountain1.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: top left;
+    height: 1000px;
+}
+.txt-box1 {
+    
+    position: absolute;
+    top: 300px;
+    right: 15%;
+    width: 500px;
+    text-align: center;
+
+}
+.txt-box1 h1 {
+    color: var(--color-1);
+    font-size: 32px;
+}
+.txt-box1 p {
+    text-decoration: none;
+    font-size: 16px;
+    margin: 16px;
+}
+#ReadMore {
+    background-color: var(--color-2);
+    padding: 8px;
+    margin-top: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.split {
+    background-color: var(--color-1);
     position: relative;
-    padding: 40em;
-    background-image: url("../Images/mountain2.jpg");
-    background-size: cover;
+    height: 300px;
+}
+#info {
+    width: 400px;
+    margin-left: 20px;
+    margin: 50px;
+    color: #fff;
+}
+#info p {
+    margin-left: 8px;
+    margin: 16px;
+}
+#preview {
+    position: absolute;
+    right: 24px;
+    top: 0px;
+    text-align: center;
+}
+.jacket {
+    display: inline-block;
+    margin: 16px;
+}
+.jacket img {
+    height: 150px;
+}
+.jacket h2 {
+    color: #fff;
+    padding: 4px;
+    margin-bottom: 16px;
+}
+.price {
+    background-color: var(--color-2);
+    padding: 8px;
+    margin-top: 16px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.splash2 {
+    background-image: url(../Images/mountain2.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    height: 1000px;
+    position: relative;
+}
+.txt-box2 {
+    
+    position: absolute;
+    top: 150px;
+    left: 10%;
+    width: 500px;
+    text-align: center;
+
+}
+.txt-box2 h1 {
+    color: var(--color-1);
+    font-size: 40px;
+}
+.txt-box2 p {
+    text-decoration: none;
+    font-size: 16px;
+    margin: 16px;
 }
 footer {
-    position: relative;
-    background-color: #0A3641;
-    width: 100%;
     height: 300px;
+    position: relative;
+    padding-top: 16px;
+    color: #fff;
+}
+footer h3 {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: normal;
+}
+footer li {
+    padding-left: 8px;
+}
+.CompanyInfo {
+    position: absolute;
+    left: 5%;
+}
+.AboutUs {
+    position: absolute;
+    left: 50%;
+}
+.customerService {
+    position: absolute;
+    right: 5%;
+}
+.SoMe {
+    position: absolute;
+    display: inline-block;
+    bottom: 10%;
+    left: 5%;
+    
+}
+.SoMe ul li {
+    list-style: none;
+    display: inline;
+    padding: 16px;
 }
